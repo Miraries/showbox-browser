@@ -1,9 +1,9 @@
 <template>
     <div class="row justify-content-center">
         <div class="text-center">
-            <div class="form-group">
+            <div class="form-group" v-on:keyup.enter="fetchVideos">
                 <input type="text" class="form-control col-12" placeholder="Title" v-model="searchFilter">
-                <button class="btn btn-primary col-6 mt-2" @click="fetchVideos">Search</button>
+                <button class="btn btn-primary col-6 mt-2" @click="fetchVideos" >Search</button>
             </div>
         </div>
         <div class="container">
