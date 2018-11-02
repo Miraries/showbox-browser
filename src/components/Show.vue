@@ -11,7 +11,7 @@
 </template>
 <script>
     export default {
-        name: 'Video',
+        name: 'Show',
         props: ['data'],
         data() {
             return {

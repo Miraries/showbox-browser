@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="row justify-content-center text-left mt-4">
-            <div class="col-3">
+            <div class="col-lg-3 col-sm-6">
                 <h4>Imdb ID: <b>{{ imdbid }}</b></h4>
                 <h4>Season: <b>{{ season }}</b></h4>
                 <h4>Seasons:</h4>
@@ -16,7 +16,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-4">
+            <div class="col-lg-4 col-sm-6">
                 <h4>Titles:</h4>
                 <ul class="list-group">
                     <li class="list-group-item" v-for="(title, index) in titles">
