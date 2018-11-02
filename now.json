@@ -1,0 +1,17 @@
+{
+  "name": "showbox-browser",
+  "type": "static",
+  "static": {
+    "public": "dist",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "alias": "showbox-browser",
+  "files": [
+    "dist"
+  ]
+}
