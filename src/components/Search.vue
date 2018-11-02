@@ -8,20 +8,21 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-4" v-for="(video, index) in videos" :key="video.id">
-                    <Video :data="video"></Video>
+                <div class="col-md-4" v-for="video in videos" :key="video.id">
+                    <Show :data="video"></Show>
                 </div>
             </div>
         </div>
     </div>
 </template>
 <script>
-    import Video from './Video';
+    import Show from './Show';
+    import axios from 'axios'
 
     export default {
         name: 'Search',
         components: {
-            Video
+            Show
         },
         data() {
             return {
