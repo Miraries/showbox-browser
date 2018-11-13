@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container mb-4">
         <div class="row justify-content-center">
             <div class="col-12">
                 <img :src="banner_url" alt="Banner" class="img-fluid">
@@ -8,18 +8,20 @@
         <div class="row justify-content-center text-left mt-4">
             <div class="col-lg-3 col-sm-6">
                 <h4>Imdb ID: <b>{{ imdbid }}</b></h4>
-                <h4>Season: <b>{{ season }}</b></h4>
+                <!-- <h4>Season: <b>{{ season }}</b></h4> -->
                 <h4>Seasons:</h4>
                 <ul class="list-group">
-                    <li class="list-group-item w-25" v-for="s in seasons" v-on:click="season = s; fetchDetails()">
-                        <router-link :to="{ name: 'videodetails-season', params: {season: s }}" replace>{{ s }}</router-link>
-                    </li>
+                    <b-dropdown :text="'Season ' + season" class="m-md-2">
+                        <b-dropdown-item v-for="s in seasons" v-on:click="season = s" :key="s">
+                            <router-link :to="{ name: 'videodetails-season', params: {season: s }}" replace>{{ s }}</router-link>
+                        </b-dropdown-item>
+                    </b-dropdown>
                 </ul>
             </div>
             <div class="col-lg-4 col-sm-6">
                 <h4>Titles:</h4>
                 <ul class="list-group">
-                    <li class="list-group-item" v-for="(title, index) in titles">
+                    <li class="list-group-item" v-for="(title, index) in titles" :key="index">
                         <router-link :to="{ name: 'videodetails-episode', params: {imdbid, season, episode: index }}">{{ title }}</router-link>
                     </li>
                 </ul>
@@ -55,6 +57,11 @@
         },
         created() {
             this.fetchDetails();
+        },
+        watch: {
+            season: function() {
+                this.fetchDetails();
+            }
         }
     }
 
